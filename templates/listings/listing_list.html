@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} | Svi oglasi{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+
+            <div class="bg-white text-dark p-3 mb-3 text-center shadow-lg">
+            <h3>Pretraži ponudu nekretnina</h3>
+            <form method="GET" class="search-form">
+                {{ filter.form | crispy }}
+                <div class="my-3">
+                    <button type="submit" class="btn btn-success px-3 mx-3">Traži</button>
+                    <a class="btn btn-warning px-3 mx-3" href="{% url 'listings' %}">Poništi</a>
+                </div>
+            </form>
+            </div>
+
+            <div class="text-dark bg-white mb-3 shadow-lg text-center">
+            <span class="h3">{{ page_obj.paginator.count }} oglasa</span>
+            </div>
+        </div>
+
+        <div class="col-lg-9 px-3">
+
+            {% for listing in listings %}
+
+            <div class="text-dark bg-white mb-3 shadow-lg">
+            <div class="row"> 
+                <div class="col-lg-5">
+                    <div class="bg-image hover-zoom justify-content-center">
+                        <img src="{{listing.photo_main.url}}" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="pt-3">
+                    <a class="text-dark nav-hover" href="{{ listing.get_absolute_url }}">{{listing.title}}</a>
+                    </h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-dark bg-white py-1"><i class="fas fa-map-marked-alt text-success"></i> Lokacija: {{listing.location}}</li>
+                        <li class="list-group-item text-dark bg-white py-1"><i class="fas fa-building text-success"></i> Tip objekta: {{listing.property_type}}</li>
+                        <li class="list-group-item text-dark bg-white py-1"><i class="fas fa-th-large text-success"></i> Stambena površina: {{listing.area | intcomma }} m<sup>2</sup></li>
+                        <li class="list-group-item text-dark bg-white py-1"><i class="far fa-calendar-alt text-success"></i> Godina izgradnje: {{listing.year}}.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <h4 class="py-2 pt-4">Cijena:</h4>
+                    <h4 class="py-2">{{ listing.price | intcomma }} <span class="text-success">kn</span></h4>
+                    <h4 class="py-2">~{{ listing.get_price_euros | intcomma }} <span class="text-success">€</span></h4>
+                    <h4 class="pt-3 small">Oglas objavljen:</span></h4>
+                    <h4 class="small">{{listing.created | date:"d. m. Y."}}</span></h4>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Pagination -->
+{% include "partials/pagination.html" %}
+
+{% endblock content %}

@@ -1,0 +1,166 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% block title %} | {{listing.title}}{% endblock title %}
+
+{% block content %} 
+
+<!-- Listing -->
+<div class="container bg-white text-dark p-3 shadow-lg mb-3">
+
+
+    <section id="listing">
+      <div class="container">
+        <a href="{% url 'listings' %}" class="btn btn-outline-success mb-4">Povratak na oglase</a>
+        <div class="row">
+          <div class="col-md-9">
+            <!-- Home Main Image -->
+            <a href="{{ listing.photo_main.url }}" data-lightbox="listing-images">
+              <img src="{{ listing.photo_main.url }}" class="img-main img-fluid mb-3 w-100">
+            </a>
+            <!-- Thumbnails -->
+            <div class="row mb-3 thumbs d-none d-md-flex">
+              {% if listing.photo_1 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_1.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_1.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+              {% if listing.photo_2 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_2.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_2.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+              {% if listing.photo_3 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_3.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_3.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+              {% if listing.photo_4 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_4.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_4.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+              {% if listing.photo_5 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_5.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_5.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+              {% if listing.photo_6 %}
+              <div class="col-md-2">
+                <a href="{{ listing.photo_6.url }}" data-lightbox="listing-images">
+                  <img src="{{ listing.photo_6.url }}" class="img-fluid">
+                </a>
+              </div>
+              {% endif %}
+            </div>
+        </div>
+
+  <!-- Contact information -->
+    <div class="col-md-3">
+      <h3>Kontakt informacije:</h3>
+      <table>
+        <tr>
+          <td class="p-2"><i class="text-success fas fa-user"></i></td>
+          <td class="p-2">{{listing.author.username}}</td>
+        </tr>
+        <tr>
+          <td class="p-2"><i class="text-success fas fa-phone"></i></td>
+          <td class="p-2">{{listing.author.phone}}</td>
+        </tr>
+        <tr>
+          <td class="p-2"><i class="text-success fas fa-envelope"></i></td>
+          <td class="p-2">{{listing.author.email}}</td>
+        </tr>
+        <tr>
+          <td class="p-2"><i class="text-success fas fa-map-marker-alt"></i></td>
+          <td class="p-2">{{listing.location}}</td>
+        </tr>
+      </table>
+      {% if user == listing.author %}     
+      <div class="text-center">
+        <a href="{% url 'listing-update' listing.slug %}" class="btn btn-sm btn-warning m-1" ><i class="fas fa-pencil-alt " data-toggle="tooltip" data-placement="bottom" title="Uredi oglas"></i></a>
+        <button type="button" class="btn btn-sm btn-danger m-1" data-mdb-toggle="modal" data-mdb-target="#modal"><i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Obriši oglas"></i></button>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <hr>
+  <span class="h2">{{ listing.title }}</span>
+  <hr>
+  <dl class="row">
+    <dt class="col-sm-3 h2">Cijena:</dt>
+    <dd class="col-sm-9 h2">{{ listing.price | intcomma}} kn</dd>
+    <dt class="col-sm-3 h2">Cijena u eurima:</dt>
+    <dd class="col-sm-9 h2">~{{ listing.get_price_euros | intcomma}} €</dd>
+  </dl>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-3 text-center border">
+          <h3 class="pt-3">Stambena površina:</h3>
+          <i class="fas fa-th-large fa-3x p-3 text-success"></i>
+          <h4 class="p-3">{{ listing.area | intcomma }} m<sup>2</sup></h4>
+        </div>
+
+        <div class="col-md-3 text-center border">
+          <h3 class="pt-3">Spavaćih soba:</h3>
+          <i class="fas fa-bed fa-3x p-3 text-success"></i>
+          <h4 class="p-3">{{ listing.bedrooms }}</h4>
+        </div>
+
+        <div class="col-md-3 text-center border">
+          <h3 class="pt-3">Kupaonica:</h3>
+          <i class="fas fa-bath fa-3x p-3 text-success"></i>
+          <h4 class="p-3" data-toggle="tooltip" data-placement="bottom" title="{{ listing.get_power_in_horsepower}} KS">{{ listing.bathrooms }}</h4>
+        </div>
+
+        <div class="col-md-3 text-center border">
+          <h3 class="pt-3">Parkirnih mjesta:</h3>
+          <i class="fas fa-parking fa-3x p-3 text-success"></i>
+          <h4 class="p-3">{{ listing.car_spaces }}</h4>
+        </div>
+      </div>
+    </div>
+
+  <table class="table text-dark mt-3">
+    <thead>
+      <tr>
+        <th colspan="2" class="h3">Osnovne informacije:</th>
+      </tr>
+    </thead>
+    <tbody class="h5">
+      <tr>
+        <td>Lokacija:</td>
+        <th>{{ listing.location }}</th>
+      </tr>
+      <tr>
+        <td>Županija:</td>
+        <th>{{ listing.get_readable_county }}</th>
+      </tr>
+      <tr>
+        <td>Tip objekta:</td>
+        <th>{{ listing.property_type }}</th>
+      </tr>
+      <tr>
+        <td>Godina izgradnje:</td>
+        <th>{{ listing.year }}.</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+{% include "listings/listing_confirm_delete.html" %}
+
+{% endblock content %}

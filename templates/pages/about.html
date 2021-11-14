@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | O nama{% endblock title %}
+
+{% block content %}
+  <main id="main" class="container bg-white shadow-lg mb-3">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+        <h1 class="p-3">Više o agenciji</h1>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= About Section ======= -->
+    <section class="section-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 position-relative">
+            <div class="about-img-box">
+              <img src="{% static 'images/slide-about-1.jpg' %}" alt="" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-md-12 section-t8 position-relative">
+            <div class="row">
+              <div class="col-md-6 col-lg-5">
+                <img src="assets/img/about-2.jpg" alt="" class="img-fluid">
+              </div>
+              <div class>
+                <div class="title-box-d">
+                  <h2 class="title-d">Sed
+                    <span>porttitor</span> lectus
+                  </h2>
+                </div>
+                <p class="color-text-a">
+                  Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
+                  consectetur sed, convallis
+                  at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
+                  ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
+                  neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+                </p>
+                <p class="color-text-a">
+                  Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                  Mauris blandit aliquet
+                  elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
+                  convallis at tellus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="title-single-box">
+              <h2>Naša lokacija</h2>
+              <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+              <div id="map" class="">
+                <div id="map" class="contact-map">
+                    <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=fsb&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    
+
+    <!-- =======Team Section ======= -->
+    <section class="section-agents section-t8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box">
+                <h2 class="py-3">Naši agenti</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card-box-d">
+              <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+                <img src="{% static 'images/agent-7.jpg' %}" alt="" class="img-d img-fluid">
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(57, 192, 67, 0.2)"></div>
+                </a>
+              </div>
+              <div class="card-overlay card-overlay-hover">
+                <div class="card-header-d">
+                  <div class="card-title-d align-self-center">
+                    <h3 class="title-d">
+                      <a href="agent-single.html" class="nav-hover text-dark">Margaret Sotillo
+                        <br> Escala</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body-d">
+                  <p class="content-d color-text-a">
+                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                  </p>
+                  <div class="info-agents color-a">
+                    <p>
+                      <strong><i class="text-success fas fa-phone"></i></strong> +54 356 945234
+                    </p>
+                    <p>
+                      <strong><i class="text-success fas fa-envelope"></i></strong> agents@example.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-box-d">
+              <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+                <img src="{% static 'images/agent-6.jpg' %}" alt="" class="img-d img-fluid">
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(57, 192, 67, 0.2)"></div>
+                </a>
+              </div>
+              <div class="card-overlay card-overlay-hover">
+                <div class="card-header-d">
+                  <div class="card-title-d align-self-center">
+                    <h3 class="title-d">
+                      <a href="agent-single.html" class="nav-hover text-dark">Stiven Spilver
+                        <br> Darw</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body-d">
+                  <p class="content-d color-text-a">
+                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                  </p>
+                  <div class="info-agents color-a">
+                    <p>
+                      <strong><i class="text-success fas fa-phone"></i></strong> +54 356 945234
+                    </p>
+                    <p>
+                      <strong><i class="text-success fas fa-envelope"></i></strong> agents@example.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-box-d">
+              <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+                <img src="{% static 'images/agent-5.jpg' %}" alt="" class="img-d img-fluid">
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(57, 192, 67, 0.2)"></div>
+                </a>
+              </div>
+              <div class="card-overlay card-overlay-hover">
+                <div class="card-header-d">
+                  <div class="card-title-d align-self-center">
+                    <h3 class="title-d">
+                      <a href="agent-single.html" class="nav-hover text-dark">Emma Toledo
+                        <br> Cascada</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body-d">
+                  <p class="content-d color-text-a">
+                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                  </p>
+                  <div class="info-agents color-a">
+                    <p>
+                      <strong><i class="text-success fas fa-phone"></i></strong> +54 356 945234
+                    </p>
+                    <p>
+                      <strong><i class="text-success fas fa-envelope"></i></strong> agents@example.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section-->
+
+  </main><!-- End #main -->
+{% endblock content %}

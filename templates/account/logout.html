@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} | Odjavi se{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 offset-md-3 bg-white text-dark text-center shadow-lg my-5 mx-3 py-3">
+      <section class="py-5">
+        <h1>Odjava</h1>
+        <p>Jeste li sigurni da se želite odjaviti?</p>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button class="btn btn-danger" type="submit">Odjava</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

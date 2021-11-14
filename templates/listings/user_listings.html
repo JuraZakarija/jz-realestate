@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% block title %} | Moji oglasi{% endblock title %}
+
+{% block content %}
+
+<div class="container text-dark bg-white mb-3 shadow text-center">
+  <span class="h3">{{ listings.count }} oglasa</span>
+</div>
+
+{% for listing in listings %}
+
+<div class="container text-dark bg-white mb-3 shadow">
+  <div class="row"> 
+    <div class="col-md-4 px-0 bg-image hover-zoom">
+      <img src="{{listing.photo_main.url}}" class="img-fluid">
+    </div>
+    <div class="col-md-5">
+      <h2 class="p-3">
+        <a class="text-dark nav-hover" href="{{ listing.get_absolute_url }}">{{listing.title}}</a>
+        </h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-dark bg-white py-1"><i class="fas fa-map-marked-alt text-success"></i> Lokacija: {{listing.location}}</li>
+            <li class="list-group-item text-dark bg-white py-1"><i class="fas fa-building text-success"></i> Tip objekta: {{listing.property_type}}</li>
+            <li class="list-group-item text-dark bg-white py-1"><i class="fas fas fa-th-large text-success"></i> Stambena površina: {{listing.area | intcomma }} m<sup>2</sup></li>
+            <li class="list-group-item text-dark bg-white py-1"><i class="far fa-calendar-alt text-success"></i> Godina izgradnje: {{listing.year}}.</li>
+            <li class="list-group-item text-dark bg-white py-1"><i class="far fa-clock text-success"></i> Oglas objavljen: {{listing.created | date:"d. m. Y."}}</li>
+        </ul>
+    </div>
+    <div class="col-md-3 text-center">
+        <h4 class="py-2 pt-4">Cijena:</h4>
+        <h4 class="py-2">{{ listing.price | intcomma }} <span class="text-success">kn</span></h4>
+        <h4 class="py-2">~{{ listing.get_price_euros | intcomma }} <span class="text-success">€</span></h4>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Pagination -->
+{% include "partials/pagination.html" %}
+
+{% endblock content %}

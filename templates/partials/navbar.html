@@ -1,0 +1,64 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-sm bg-light shadow-lg py-3 mb-3">
+  <div class="container">
+  
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item py-1">
+            <a class="h5 mx-3 text-dark nav-hover" href="{% url 'home' %}"><span class="text-success">JZ</span> RealEstate</a>
+        </li>
+        <li class="nav-item py-1">
+            <a class="h5 mx-3 text-dark nav-hover" href="{% url 'listings' %}">Oglasi</a>
+        </li>
+        <li class="nav-item py-1">
+            <a class="h5 mx-3 text-dark nav-hover" href="{% url 'about' %}">O nama</a>
+        </li>
+    </ul>
+
+    {% if user.is_authenticated %}
+      <div class="dropdown">
+          <a
+            class="h5 mx-3 text-dark nav-hover dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ user.username }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"
+          > 
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-dark" href="{% url 'user-profile' %}"
+            >Moj profil</a>
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item text-dark" href="{% url 'account_change_password' %}"
+              >Promjeni lozinku</a>
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item text-dark" href="{% url 'listing-create' %}"
+            >Predaj oglas</a>
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item text-dark" href="{% url 'user-listings' user.username %}"
+            >Moji oglasi</a>
+            <div class="dropdown-divider"></div>
+            
+            <a class="dropdown-item text-dark" href="{% url 'account_logout' %}"
+              >Odjavi se</a>
+          </ul>
+      </div>
+      {% else %}
+      <div class="ml-auto">
+        <a href="{% url 'account_login' %}" class="btn btn-outline-success"
+          >Prijavi se</a
+        >
+        <a href="{% url 'account_signup' %}" class="btn btn-success mx-2"
+          >Registriraj se</a
+        >
+      </div>
+    {% endif %}
+  </div>
+</nav>

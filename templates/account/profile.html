@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} | Moj profil{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 bg-white text-dark my-5 shadow-lg">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-botom mb-4 text-center">Moj profil</legend>
+                {{ form|crispy }}
+            </fieldset>
+                <div class="mb-3">
+                <button class="btn btn-block btn-outline-success my-3" type="submit">Ažuriraj podatke</button>
+                </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
