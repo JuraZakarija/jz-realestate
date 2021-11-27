@@ -7,5 +7,6 @@ from .models import Listing
 class ListingAdmin(admin.ModelAdmin):
     class Meta:
         model = Listing
-        
-    readonly_fields = ("id", "slug", "created", "modified")
+    
+    readonly_fields = ("slug", "created", "modified")
+    list_display = ["title", "author", "county"]

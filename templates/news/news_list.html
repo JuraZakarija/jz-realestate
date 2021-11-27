@@ -1,0 +1,99 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} | Novosti{% endblock title %}
+
+{% block content %}
+
+<div class="container bg-white text-dark p-3 shadow-lg mb-3">
+  <div>
+    <img
+        src="{% static 'images/news.jpg' %}"
+        class="d-block w-100"
+        alt="..."
+      />
+  </div>
+
+  <section class="text-center">
+      <h2 class="my-5"><strong>Novosti iz svijeta nekretnina</strong></h2>
+
+      <div class="row g-lg-5 g-4">
+        {% for post in posts %}
+        <div class="col-lg-6">
+          <div class="card rounded-5">
+            <div
+                 class="bg-image hover-overlay ripple"
+                 >
+              <img
+                src="{{ post.image.url }}"
+                class="img-fluid"
+              />
+              <a href="#!">
+                <div
+                     class="mask"
+                     style="background-color: rgba(251, 251, 251, 0.15)"
+                     ></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-6 text-start">
+                  {% if post.category == "Savjeti" %}
+                  <p class="text-warning">
+                        <i class="fas fa-lightbulb"></i>
+                        {{ post.category }}
+                  </p>
+                  {% endif %}
+                  {% if post.category == "Novogradnja" %}
+                  <p class="text-success">
+                        <i class="fas fa-building"></i>
+                        {{ post.category }}
+                  </p>
+                  {% endif %}
+                  {% if post.category == "Svijet" %}
+                  <p class="text-primary">
+                        <i class="fas fa-globe-europe"></i>
+                        {{ post.category }}
+                  </p>
+                  {% endif %}
+                  {% if post.category == "Aktualno" %}
+                  <p class="text-danger">
+                        <i class="fas fa-chart-pie"></i>
+                        {{ post.category }}
+                  </p>
+                  {% endif %}
+                  {% if post.category == "Hrvatska" %}
+                  <p class="text-danger">
+                        <i class="fas fa-home"></i>
+                        {{ post.category }}
+                  </p>
+                  {% endif %}
+                </div>
+
+                <div class="col-6 text-end">              
+                  <u>{{ post.created | date:"d. m. Y"}}</u>
+                </div>
+              </div>
+              <div style="height: 120px">
+                <a class="text-dark nav-hover h4" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <p class="card-text m-2">{{ post.lead }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+</div>
+
+
+
+<!-- Pagination -->
+{% include "partials/pagination.html" %}
+
+{% endblock content %}

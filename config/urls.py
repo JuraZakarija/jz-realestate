@@ -9,6 +9,7 @@ urlpatterns = [
     path("accounts/profile/", include("accounts.urls")),
     path("", include("pages.urls")),
     path("listings/", include("listings.urls")),
+    path("news/", include("news.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

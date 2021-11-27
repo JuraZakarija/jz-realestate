@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} | {{ post.title }}{% endblock title %}
+
+{% block content %}
+
+<div class="container bg-white text-dark p-3 shadow-lg mb-3">
+    <h2 class="m-3 text-center">{{ post.title }}</h2>
+    <img
+        src="{% static 'images/news.jpg' %}"
+        class="img-fluid rounded w-100"
+        alt="..."
+    />
+    <div class="row m-3 h5">
+        <div class="col-6 text-start">
+            {% if post.category == "Savjeti" %}
+            <p class="text-warning">
+                <i class="fas fa-lightbulb"></i>
+                {{ post.category }}
+            </p>
+            {% endif %}
+            {% if post.category == "Novogradnja" %}
+            <p class="text-success">
+                <i class="fas fa-building"></i>
+                {{ post.category }}
+            </p>
+            {% endif %}
+            {% if post.category == "Svijet" %}
+            <p class="text-primary">
+                <i class="fas fa-globe-europe"></i>
+                {{ post.category }}
+            </p>
+            {% endif %}
+            {% if post.category == "Aktualno" %}
+            <p class="text-danger">
+                <i class="fas fa-chart-pie"></i>
+                {{ post.category }}
+            </p>
+            {% endif %}
+            {% if post.category == "Hrvatska" %}
+            <p class="text-danger">
+                <i class="fas fa-home"></i>
+                {{ post.category }}
+            </p>
+            {% endif %}
+        </div>
+        <div class="col-6 text-end">
+            <p>Objavljeno: {{ post.created | date:"d. m. Y"}}</p>
+        </div>
+    </div>
+    <div class="m-5">
+        {{ post.body | safe }}
+        <div class="text-center">
+        <a href="{% url 'news' %}" class="btn btn-outline-success mt-4">Povratak na novosti</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

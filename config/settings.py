@@ -31,10 +31,12 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "django_extensions",
     "django_filters",
+    "ckeditor",
     # Local
     "accounts",
     "listings",
     "pages",
+    "news",
 ]
 
 # MIDDLEWARE

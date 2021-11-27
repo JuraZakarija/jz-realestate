@@ -78,7 +78,7 @@
   <div class="jumbotron">
     <div class="container bg-white shadow-lg">
       <h1 class="display-2"><span class="text-success">JZ</span> RealEstate</h1>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste voluptates hic voluptatibus tempore, quis alias deleniti magnam dolores. Nisi maxime culpa iste aperiam itaque sunt ullam, magnam quae tenetur accusantium!</p>
+      <p>Svaka nekretnina prolazi detaljnu provjeru naših agenata. Kontaktirajte nas kako bismo u našoj širokoj ponudi nekretnina zajedno pronašli nekretninu baš za vas!</p>
       <p><a class="btn btn-success btn-lg m-3" href="{% url 'listings' %}" role="button">Svi oglasi &raquo;</a></p>
     </div>
   </div>
@@ -100,7 +100,7 @@
                 <h4 class="p-1 text-dark"><i class="fas fa-bath p-3 text-success"></i> {{ listing.bathrooms }}</h4>
                 <h4 class="p-1 text-dark"><i class="fas fa-parking p-3 text-success"></i> {{ listing.car_spaces }}</h4>
             </div>
-            <p class="border-top border-success h2 text-dark">
+            <p class="border-top border-success h2 text-dark pt-3">
                 Cijena: {{ listing.get_price_euros | intcomma}} €
             </p>
             
@@ -113,19 +113,31 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4 bg-white text-success text-center p-3  shadow-lg">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <i class="fas fa-home fa-5x p-3 text-success"></i>
+        <div style="height: 300px">
+        <h2>Vizija</h2>
+        <p>U JZ RealEstate vjerujemo da ne postoji ništa snažnije ili važnije od doma. Zato već 18 godina pomažemo ljudima da pronađu nekretninu svojih snova i uspješno prodaju svoje nekretnine. Naš stručni tim od preko 25 agenata i suradnika koristi najbolje alate i ulaže maksimalan trud za ostvarenje naše misije, etički i iskreno služiti ljudima kako bi osjetili snagu pravog doma. </p>
+        </div>
+        <div style="height: 120px">
+            <i class="fas fa-home fa-5x p-3 text-success"></i>
+        </div>
       </div>
       <div class="col-md-4 bg-success text-white text-center p-3 shadow-lg">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <i class="fas fa-euro-sign fa-5x p-3 text-white"></i>
+        <div style="height: 300px">
+        <h2>Poslovanje</h2>
+        <p>JZ RealEstate agencija osnovana je 2003. godine i od tada uspješno poslujemo na tržištu nekretnina, pouzdan smo partner i podrška klijentima u važnim životnim odlukama. Primarno smo agencija za promet nekretninama koja se bavi rezidencijalnim nekretninama i pripremom lokacija za građevinske projekte. Godišnje realiziramo oko 400 kupoprodaja i više od 100 najmova/zakupa.</p>
+        </div>
+        <div style="height: 120px">
+            <i class="fas fa-euro-sign fa-5x p-3 text-white"></i>
+        </div>
       </div>
       <div class="col-md-4 bg-white text-success text-center p-3 shadow-lg">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <i class="far fa-calendar-check fa-5x p-3 text-success"></i>
+        <div style="height: 300px">
+        <h2>Usluge</h2>
+        <p>Sve nekretnine u našem portfelju pažljivo su odabrane i provjerene jer su zadovoljstvo i sigurnost klijenta naši prioriteti, što potvrđuju svi naši klijenti. Područje djelovanja je Zagreb, a od 2016. i kompletnu obalu. Godišnje realiziramo oko 400 kupoprodaja i više od 100 najmova/zakupa. Svakodnevno ulažemo u edukaciju svakog djelatnika, ali i svih sudionika na tržištu nekretnina kroz naš marketing. </p>
+        </div>
+        <div style="height: 120px">
+            <i class="far fa-calendar-check fa-5x p-3 text-success"></i>
+        </div>
       </div>
     </div>
 
